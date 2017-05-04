@@ -323,5 +323,13 @@ public class SolutionTest {
         assertEquals(expResult, result);
         assertEquals(true, isPalindrome(result));
     }
-    
+    @Test
+    public void testGetMaxStringNumWithKdigitChanges_custom05() {
+        System.out.println("-T-getMaxPalindromeKchanges custom test 05...");
+        int k = 0;
+        String number =    "4923";
+        String expResult = "-1";
+        String result = Solution.getMaxPalindromeKchanges(number, k);
+        assertEquals(expResult, result);
+    }
 }
