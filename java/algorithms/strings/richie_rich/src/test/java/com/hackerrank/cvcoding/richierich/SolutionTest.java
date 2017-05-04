@@ -42,14 +42,14 @@ public class SolutionTest {
     public void tearDown() {
     }
 
-    private boolean isPalindrome(String lnum) {
-        if (lnum.length() < 2) return true;
+    private boolean isPalindrome(String str) {
+        if (str.length() < 2) return true;
         
         int ii = 0;
-        int jj = lnum.length() - 1;
+        int jj = str.length() - 1;
         
         while (ii < jj) {
-          if (lnum.charAt(ii) != lnum.charAt(jj))
+          if (str.charAt(ii) != str.charAt(jj))
               return false;
           ii++;
           jj--;
@@ -289,6 +289,36 @@ public class SolutionTest {
         String number = "12345281211289681233214096872132134803219143209328";
         int k = 22;
         String expResult = "99395284291289883233227899872233238898219248259399";
+        String result = Solution.getMaxPalindromeKchanges(number, k);
+        assertEquals(expResult, result);
+        assertEquals(true, isPalindrome(result));
+    }
+    @Test
+    public void testGetMaxStringNumWithKdigitChanges_custom02() {
+        System.out.println("-T-getMaxPalindromeKchanges custom test 02...");
+        int k = 0;
+        String number =    "2912898832332278998722332388982192";
+        String expResult = "2912898832332278998722332388982192";
+        String result = Solution.getMaxPalindromeKchanges(number, k);
+        assertEquals(expResult, result);
+        assertEquals(true, isPalindrome(result));
+    }
+    @Test
+    public void testGetMaxStringNumWithKdigitChanges_custom03() {
+        System.out.println("-T-getMaxPalindromeKchanges custom test 03...");
+        int k = 0;
+        String number =    "3";
+        String expResult = "3";
+        String result = Solution.getMaxPalindromeKchanges(number, k);
+        assertEquals(expResult, result);
+        assertEquals(true, isPalindrome(result));
+    }
+    @Test
+    public void testGetMaxStringNumWithKdigitChanges_custom04() {
+        System.out.println("-T-getMaxPalindromeKchanges custom test 04...");
+        int k = 1;
+        String number =    "4";
+        String expResult = "9";
         String result = Solution.getMaxPalindromeKchanges(number, k);
         assertEquals(expResult, result);
         assertEquals(true, isPalindrome(result));

@@ -14,21 +14,6 @@ import java.util.Scanner;
  */
 public class Solution {
     
-    private static boolean isPalindrome(String str) {
-        if (str.length() < 2) return true;
-        
-        int ii = 0;
-        int jj = str.length() - 1;
-        
-        while (ii < jj) {
-          if (str.charAt(ii) != str.charAt(jj))
-              return false;
-          ii++;
-          jj--;
-        }
-        return true;
-    }
-
     public static int countCharOccurence(String s, char c) {
         long count = s.toLowerCase().chars().filter(e -> e == c).count();
         return (int) count;
@@ -70,10 +55,7 @@ public class Solution {
         
         // this is the scenario where we are not allowed to change anything!
         // boo!!!
-        if (k == 0) {
-            if (isPalindrome(number)) return number;
-            return "-1";
-        }
+        if (k == 0) return number;
         
         // it matters if the number has an even or odd number of digits.
         int ii, jj;
