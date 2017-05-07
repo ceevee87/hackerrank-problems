@@ -68,6 +68,36 @@ public class Solution {
         }
     }    
     
+    public static long getMaxOverlappingSegmentsSum() {
+        // sort all of the points such that all starting points are first
+        // followed by all ending points ('a' points first then 'b' points).
+        Collections.sort(_crushPoints, new CrushPointCompareStart());
+
+        // do another round of sorting based on the points x-value (if you
+        // think of each point, a or b, as a location along the x-axis.
+        Collections.sort(_crushPoints);
+
+        long maxSum = 0;
+        long runningSum = 0;
+        // the algorithm is straight forward now. we traverse all the points
+        // keeping a running sum along the way. if a segment ends at the
+        // same point another segment starts we first add the value of 
+        // the new segment before subtracting the value of the ending 
+        // segment. this is important in tracking the max sum.
+        for (CrushPoint cp : _crushPoints) {
+            if (cp.isStart) {
+                runningSum += cp.val;
+            }
+            if (runningSum > maxSum) {
+                maxSum = runningSum;
+            }
+            if (!cp.isStart) {
+                runningSum -= cp.val;
+            }
+        }
+        return maxSum;
+    }
+    
     public static void main(String[] args) {
         if (args.length < 1) 
             // so, we decompose all the segments made up of end points (a, b) 
@@ -76,33 +106,7 @@ public class Solution {
             // to reiterate, if we have 10 segments, we'll be storing 20 points.
             getCrushPointsInput();
 
-            // sort all of the points such that all starting points are first
-            // followed by all ending points ('a' points first then 'b' points).
-            Collections.sort(_crushPoints, new CrushPointCompareStart());
-            
-            // do another round of sorting based on the points x-value (if you
-            // think of each point, a or b, as a location along the x-axis.
-            Collections.sort(_crushPoints);
-            
-            long maxSum = 0;
-            long runningSum = 0;
-            // the algorithm is straight forward now. we traverse all the points
-            // keeping a running sum along the way. if a segment ends at the
-            // same point another segment starts we first add the value of 
-            // the new segment before subtracting the value of the ending 
-            // segment. this is important in tracking the max sum.
-            for (CrushPoint cp : _crushPoints) {
-                if (cp.isStart) {
-                    runningSum += cp.val;
-                }
-                if (runningSum > maxSum) {
-                    maxSum = runningSum;
-                }
-                if (!cp.isStart) {
-                    runningSum -= cp.val;
-                }
-            }
-            System.out.println(maxSum);
+            System.out.println(getMaxOverlappingSegmentsSum());
     }
     
     static void getCrushPointsInput() {
@@ -125,4 +129,15 @@ public class Solution {
         }
     }
     
+    // this is valuable for running JUnit tests. otherwise, we don't 
+    // need these guys for the native hackerrank solution.
+    public static void addCrushPoints(int a, int b, int k) {
+        _crushPoints.add(new CrushPoint(a, k, true));
+        _crushPoints.add(new CrushPoint(b, k, false));
+    }
+
+    public static void clearCrushPoints() {
+        _crushPoints.clear();
+    }
+
 }
