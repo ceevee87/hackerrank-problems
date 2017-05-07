@@ -1,0 +1,9 @@
+
+This file lists all of the java resolved problems in this repository. this is because
+I maintain a flat listing of all problems to shorten the depth of the repository
+directory structure. Maven is partly to blame most of this depth.
+
+Formal Problem name                Area                  Name on Disk
+===============================================================================
+Richie Rich                        algorithms/strings    richie_rich 
+
