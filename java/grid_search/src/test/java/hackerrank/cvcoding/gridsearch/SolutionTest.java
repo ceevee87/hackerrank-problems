@@ -5,6 +5,12 @@
  */
 package hackerrank.cvcoding.gridsearch;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -229,4 +235,39 @@ public class SolutionTest {
         
         assertEquals(true, Solution.subGridExistsInMainGrid());
     }
+    @Test(timeout=800)
+    public void testSubGridExistsInMainGrid_05() {
+        // this guy is the performance test. it contains 1000 x 1000 grid.
+        // it comes straight from the hackerrank web site.
+        System.out.println("-T-main solution-hackerrank test case 05.");
+        List<Boolean> res = new ArrayList<>();
+        boolean[] expResult = {true, true, false, true, false};
+        boolean[] result = new boolean[5];
+        
+        try {
+            Scanner in = new Scanner(new File("src/test/resources/input/input05.txt"));
+            int numTests = in.nextInt();
+            for (int tt = 0; tt < numTests; tt++) {
+                Solution.clearGrids();
+                int R = in.nextInt();
+                int C = in.nextInt();
+                Solution.setMainGridRowCnt(R);
+                Solution.setMainGridColCnt(C);
+                for(int G_i=0; G_i < R; G_i++)
+                    Solution.addMainGridRow(in.next());
+                    
+                int r = in.nextInt();
+                int c = in.nextInt();
+                Solution.setSubGridRowCnt(r);
+                Solution.setSubGridColCnt(c);
+                for(int P_i=0; P_i < r; P_i++)
+                    Solution.addSubGridRow(in.next());
+                result[tt] = Solution.subGridExistsInMainGrid();
+            }
+        } catch (FileNotFoundException ex) {
+            assertEquals("File Found", "File NOT found");
+        }
+        Assert.assertArrayEquals(expResult, result);
+    }
+
 }

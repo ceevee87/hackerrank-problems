@@ -122,8 +122,8 @@ public class Solution {
             for (int col = 0; col < _mainGridColCnt-_subGridColCnt+1; col++) {
                 if (curRow.charAt(col) == firstCharInPattern) {
                     if (chkSubPatternAt(row, col, inLinePattern)) return true;
-                    // old solution
-                    // if (getSubPatternAt(row, col).equals(inLinePattern)) return true;
+                    // old solution -- should fail the JUnit test #05 test.
+//                     if (getSubPatternAt(row, col).equals(inLinePattern)) return true;
                 }
             }
         }
