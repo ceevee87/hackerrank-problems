@@ -5,11 +5,11 @@
                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>hackerrank.cvcoding</groupId>
-    <artifactId>PROJECT</artifactId>
+    <artifactId>gridsearch</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
     
-    <name>PROJECT</name>
+    <name>GridSearch</name>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,7 +31,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>hackerrank.cvcoding.PROJECT.Solution</mainClass>
+                            <mainClass>hackerrank.cvcoding.gridsearch.Solution</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
@@ -48,5 +48,18 @@
             </plugin>
         </plugins>
     </build>
-        
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
