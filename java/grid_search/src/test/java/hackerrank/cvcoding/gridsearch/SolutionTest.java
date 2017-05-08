@@ -5,10 +5,6 @@
  */
 package hackerrank.cvcoding.gridsearch;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,104 +17,80 @@ public class SolutionTest {
     public SolutionTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
-//    /**
-//     * Test of setMainGridRowCnt method, of class Solution.
-//     */
-//    @Test
-//    public void testSetMainGridRowCnt() {
-//        System.out.println("setMainGridRowCnt");
-//        int mainGridRowCnt = 0;
-//        Solution.setMainGridRowCnt(mainGridRowCnt);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of setMainGridColCnt method, of class Solution.
-//     */
-//    @Test
-//    public void testSetMainGridColCnt() {
-//        System.out.println("setMainGridColCnt");
-//        int mainGridColCnt = 0;
-//        Solution.setMainGridColCnt(mainGridColCnt);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of setSubGridRowCnt method, of class Solution.
-//     */
-//    @Test
-//    public void testSetSubGridRowCnt() {
-//        System.out.println("setSubGridRowCnt");
-//        int subGridRowCnt = 0;
-//        Solution.setSubGridRowCnt(subGridRowCnt);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of setSubGridColCnt method, of class Solution.
-//     */
-//    @Test
-//    public void testSetSubGridColCnt() {
-//        System.out.println("setSubGridColCnt");
-//        int subGridColCnt = 0;
-//        Solution.setSubGridColCnt(subGridColCnt);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-
-//    /**
-//     * Test of addMainGridRow method, of class Solution.
-//     */
-//    @Test
-//    public void testAddMainGridRow() {
-//        System.out.println("addMainGridRow");
-//        String row = "";
-//        Solution.addMainGridRow(row);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of addSubGridRow method, of class Solution.
-//     */
-//    @Test
-//    public void testAddSubGridRow() {
-//        System.out.println("addSubGridRow");
-//        String row = "";
-//        Solution.addSubGridRow(row);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-//
-    /**
-     * Test of clearGrids method, of class Solution.
-     */
     @Test
-    public void testClearGrids() {
-        System.out.println("clearGrids");
+    public void testSubGridExistsInMainGrid_custom1() {
+        // match one row exactly.
+        System.out.println("-T-main solution-sample test case custom1.");
         Solution.clearGrids();
-        assertEquals(true, true);
+        Solution.addMainGridRow("7283455864");
+        Solution.addMainGridRow("6731158619");
+        Solution.addMainGridRow("8988242643");
+        Solution.addMainGridRow("3830589324");
+        Solution.addMainGridRow("2229505813");
+        Solution.addMainGridRow("5633845374");
+        Solution.addMainGridRow("6473530293");
+        Solution.addMainGridRow("7053106601");
+        Solution.addMainGridRow("0834282956");
+        Solution.addMainGridRow("4607924137");
+        
+        Solution.addSubGridRow("2229505813");
+
+        Solution.setMainGridRowCnt(10);
+        Solution.setMainGridColCnt(10);
+        Solution.setSubGridRowCnt(1);
+        Solution.setSubGridColCnt(10);
+        
+        assertEquals(true, Solution.subGridExistsInMainGrid());
     }
-    
+    @Test
+    public void testSubGridExistsInMainGrid_custom2() {
+        // match one column exactly.
+        System.out.println("-T-main solution-sample test case custom2.");
+        Solution.clearGrids();
+        Solution.addMainGridRow("7283455864");
+        Solution.addMainGridRow("6731158619");
+        Solution.addMainGridRow("8988242643");
+        Solution.addMainGridRow("3830589324");
+        Solution.addMainGridRow("2229505813");
+        
+        Solution.addSubGridRow("7");
+        Solution.addSubGridRow("6");
+        Solution.addSubGridRow("8");
+        Solution.addSubGridRow("3");
+        Solution.addSubGridRow("2");
+
+        Solution.setMainGridRowCnt(5);
+        Solution.setMainGridColCnt(10);
+        Solution.setSubGridRowCnt(5);
+        Solution.setSubGridColCnt(1);
+        
+        assertEquals(true, Solution.subGridExistsInMainGrid());
+    }
+    @Test
+    public void testSubGridExistsInMainGrid_custom3() {
+        // match the entire grid exactly.
+        System.out.println("-T-main solution-sample test case custom3.");
+        Solution.clearGrids();
+        Solution.addMainGridRow("7283455864");
+        Solution.addMainGridRow("6731158619");
+        Solution.addMainGridRow("8988242643");
+        Solution.addMainGridRow("3830589324");
+        Solution.addMainGridRow("2229505813");
+        
+        Solution.addSubGridRow("7283455864");
+        Solution.addSubGridRow("6731158619");
+        Solution.addSubGridRow("8988242643");
+        Solution.addSubGridRow("3830589324");
+        Solution.addSubGridRow("2229505813");
+
+        Solution.setMainGridRowCnt(5);
+        Solution.setMainGridColCnt(10);
+        Solution.setSubGridRowCnt(5);
+        Solution.setSubGridColCnt(10);
+        
+        assertEquals(true, Solution.subGridExistsInMainGrid());
+    }
+
     @Test
     public void testSubGridExistsInMainGrid_A1() {
         System.out.println("-T-main solution-sample test case A1.");
