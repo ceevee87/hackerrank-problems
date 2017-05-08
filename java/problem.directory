@@ -5,5 +5,6 @@ directory structure. Maven is partly to blame most of this depth.
 
 Formal Problem name                Area                  Name on Disk
 ===============================================================================
-Richie Rich                        algorithms/strings        richie_rich 
-Algorithmic Crush                  data structures/arrays    algorithmic_crush
+Richie Rich                      algorithms/strings          richie_rich 
+Algorithmic Crush                data structures/arrays      algorithmic_crush
+The Grid Search                  algorithms/implementation   grid_search
