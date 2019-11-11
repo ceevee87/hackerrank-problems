@@ -1,5 +1,5 @@
 # hackerrank-problems
-This repository contains solutions to www.hackerrank.com problems in multiple languages. However, I no longer maintain this repository. All of my Hackerrank work is now in another repository.
+This repository contains solutions to www.hackerrank.com problems in multiple languages. However, I no longer maintain this repository. All of my Hackerrank work is now in another repository, hackerrank-collection. That work is all .NET based (C#). 
 
 # My profile
 I love solving problems and I love writing code! My hackerrank id is 'ceevee87' and as of the beginning of May 2017 I was in the 78th percentile of algorithms. I have solved 50 problems on the hackerrank website.
